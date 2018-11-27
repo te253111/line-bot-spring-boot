@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: line-bot-spring-boot
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: kanok.k
+Implementation-Vendor-Id: com.autobot
+Build-Jdk: 1.8.0_181
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/line-bot-spring-boot
+Created-By: Maven Integration for Eclipse
+
