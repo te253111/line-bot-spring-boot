@@ -27,7 +27,7 @@ public class Application {
     public Message handleTextMessage(MessageEvent<TextMessageContent> e) {
         System.out.println("event: " + e);
      		
-     		requestParam.setText(e.getMessage().getText());
+     		requestParam.setText(e.toString());
      		requestParam.setLc("th");
      		
      		String response = simsimiAPI.request(requestParam);
