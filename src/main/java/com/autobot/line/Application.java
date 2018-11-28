@@ -33,14 +33,12 @@ public class Application {
      		requestParam.setLc("th");
      		
      		String response = simsimiAPI.request(requestParam);
-
-     		Gson gson = new Gson(); // Or use new GsonBuilder().create();
-     		BotModel data = gson.fromJson(response, BotModel.class); 
-     		
      		if (response == null) {
      	        return new TextMessage("No response Data");
     		} else {
-    	        return new TextMessage(data.getResponse());
+    	   		String arr[] =  response.split(":");
+         		String mess = arr[1].substring(0, arr[1].length()-1);
+    	        return new TextMessage(mess);
     		}
 
     }

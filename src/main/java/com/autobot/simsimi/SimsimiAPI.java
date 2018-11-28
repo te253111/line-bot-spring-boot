@@ -59,7 +59,7 @@ public class SimsimiAPI {
 			bufferReader = new BufferedReader(inputStreamReader);
 
 			while ((buffer = bufferReader.readLine()) != null) {
-				if (buffer.length() > 1) {
+				if (buffer.contains("response")) {
 					result = buffer;
 				}
 			}
