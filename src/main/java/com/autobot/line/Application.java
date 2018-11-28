@@ -3,8 +3,10 @@ package com.autobot.line;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.autobot.model.BotModel;
 import com.autobot.simsimi.RequestParam;
 import com.autobot.simsimi.SimsimiAPI;
+import com.google.gson.Gson;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
 import com.linecorp.bot.model.message.Message;
@@ -27,15 +29,18 @@ public class Application {
     public Message handleTextMessage(MessageEvent<TextMessageContent> e) {
         System.out.println("event: " + e);
      		
-     		requestParam.setText(e.toString());
+     		requestParam.setText(e.getMessage().getText());
      		requestParam.setLc("th");
      		
      		String response = simsimiAPI.request(requestParam);
 
+     		Gson gson = new Gson(); // Or use new GsonBuilder().create();
+     		BotModel data = gson.fromJson(response, BotModel.class); 
+     		
      		if (response == null) {
      	        return new TextMessage("No response Data");
     		} else {
-    	        return new TextMessage(response);
+    	        return new TextMessage(data.getResponse());
     		}
 
     }
